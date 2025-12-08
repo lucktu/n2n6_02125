@@ -179,11 +179,11 @@ static int readConfFile(const char * filename, char * const linebuffer) {
             traceEvent(TRACE_ERROR, "parameter file %s not found/unable to access\n", filename);
         else
             traceEvent(TRACE_ERROR, "cannot stat file %s, %s\n",filename, strerror(errno));
-            free(buffer);
+        free(buffer);
         return -1;
     }
 
-    fd = fopen(filename, "rb");
+				fd = fopen(filename, "rb");
     if (!fd) {
         traceEvent(TRACE_ERROR, "Unable to open parameter file '%s': %s\n", filename, strerror(errno));
         free(buffer);
